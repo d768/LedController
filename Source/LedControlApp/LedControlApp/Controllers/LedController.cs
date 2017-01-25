@@ -30,6 +30,7 @@ namespace LedControlApp.Controllers
 
         public async Task<bool> SetLedValue(byte value)
         {
+            System.Diagnostics.Debug.WriteLine(value);
             var service = await _device.GetServiceAsync(_serviceGuid);
             var charact = await service.GetCharacteristicAsync(_charGuid);
             return await charact.WriteAsync(new byte[] {value});
@@ -37,14 +38,14 @@ namespace LedControlApp.Controllers
 
         public async Task<bool> FindAndConnectToDevice()
         {
-            _adapter.ScanTimeout = 10;
+            _adapter.ScanTimeout = 20000;
             await _adapter.StartScanningForDevicesAsync();
-            var device =_adapter.DiscoveredDevices.FirstOrDefault(x => FilterDevice(x));
+            var device = _adapter.DiscoveredDevices.FirstOrDefault(x => FilterDevice(x));
             if (device != null && await ConnectToDevice(device))
             {
                 _device = device;
             }
-            
+
             return _device != null;
         }
 
@@ -57,7 +58,8 @@ namespace LedControlApp.Controllers
 
         private async Task<bool> ConnectToDevice(IDevice device)
         {
-            return true;
+            await _adapter.ConnectToDeviceAsync(device);
+            return _adapter.ConnectedDevices.FirstOrDefault(x => x.Id == device.Id) != null; 
         }
     }
 }
