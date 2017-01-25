@@ -9,25 +9,15 @@
       
     </EventTrigger>
   </ContentPage.Triggers>
-  <Grid>
-    <Grid.RowDefinitions>
-      <RowDefinition Height="50"/>
-      <RowDefinition Height="50"/>
-      <RowDefinition Height="*"/>
-    </Grid.RowDefinitions>
-  </Grid>
-    <Label 
-      Grid.Row="0" 
+  <StackLayout Orientation="Vertical">
+    <Label
       Text="{Binding Source={x:Reference Slider}, Path=Value}"/>
-  <Slider
-            Grid.Row="0"
-            Value="{Binding LedIntensity}"
-            x:Name="Slider"
-            Maximum="255"
-            Minimum="0"
-            VerticalOptions="Center"
-            HorizontalOptions="FillAndExpand"/>
-  <Label 
-    Grid.Row="0" 
-    Text="{Binding Log}"/>
+    <Slider
+              Value="{Binding LedIntensity}"
+              x:Name="Slider"
+              Maximum="255"
+              Minimum="0"
+              VerticalOptions="Center"
+              HorizontalOptions="FillAndExpand"/>
+  </StackLayout>
 </ContentPage>
