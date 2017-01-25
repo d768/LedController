@@ -25,7 +25,7 @@ namespace LedControlApp.Helpers
             while (_isPolling)
             {
                 await Task.Delay(_timeout);
-                await _action(_state);
+                 _action(_state);
             }
         }
 
