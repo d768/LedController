@@ -39,7 +39,8 @@
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
     <Compile Include="Controllers\LedController.cs" />
-    <Compile Include="Helpers\IEnviromentChecker.cs" />
+    <Compile Include="Helpers\Timer.cs" />
+    <Compile Include="Helpers\ViewModelBase.cs" />
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
