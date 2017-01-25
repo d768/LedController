@@ -13,8 +13,9 @@ namespace LedControlApp.Views
     {
         public LedControllerPage()
         {
-            
-            this.BindingContext = new LedControllerPageViewModel(new LedController(App.Adapter));
+            var vm = new LedControllerPageViewModel(new LedController(App.Adapter));
+            this.BindingContext = vm;
+            vm.ConnectCommand.Execute(null);
             InitializeComponent();
         }
     }
