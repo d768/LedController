@@ -33,10 +33,10 @@ namespace LedControlApp.ViewModels
                 var isConnected = false;
                 while (!isConnected)
                 {
-                    isConnected = _ledController.FindAndConnectToDevice().Result;
+                    isConnected = await _ledController.FindAndConnectToDevice();
                 }
 
-                _timer = new Timer(null, TimeSpan.FromSeconds(3), WriteValueTo);
+                _timer = new Timer(null, TimeSpan.FromMilliseconds(100), WriteValueTo);
                 _timer.StartTimer();
             }
             catch (AggregateException ex)
