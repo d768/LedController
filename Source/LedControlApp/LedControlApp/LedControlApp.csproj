@@ -41,20 +41,17 @@
     <Compile Include="Controllers\LedController.cs" />
     <Compile Include="Helpers\Timer.cs" />
     <Compile Include="Helpers\ViewModelBase.cs" />
-    <Compile Include="MainPage.xaml.cs">
-      <DependentUpon>MainPage.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ViewModels\DeviceSearchViewModel.cs" />
     <Compile Include="ViewModels\LedControllerPageViewModel.cs" />
+    <Compile Include="Views\DeviceSearchPage.xaml.cs">
+      <DependentUpon>DeviceSearchPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\LedControllerPage.xaml.cs">
       <DependentUpon>LedControllerPage.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="MainPage.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-    </EmbeddedResource>
     <EmbeddedResource Include="App.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
@@ -83,6 +80,12 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Views\LedControllerPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Views\DeviceSearchPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>
